@@ -1,0 +1,4 @@
+.env
+FastAPI/
+__pycache__/
+*.pyc
