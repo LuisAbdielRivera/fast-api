@@ -5,7 +5,7 @@ from src.routes.usuarios import usuarios
 from src.routes.material import material
 from src.routes.prestamos import prestamo
 from fastapi.middleware.cors import CORSMiddleware
-
+import uvicorn
 
 app = FastAPI(
     title="PRESTAMOS S.A. de C.V.",
@@ -21,9 +21,11 @@ app.add_middleware(
 )
 
 @app.get("/")
-def read_root():
-    return {"message": "Bienvenido a la API de PRESTAMOS S.A. de C.V."}
+def root():
+    return {"Hello Word"}
 
 app.include_router(usuarios)
 app.include_router(material)
 app.include_router(prestamo)
+
+uvicorn.run(app, host="127.0.0.1", port=8000)
