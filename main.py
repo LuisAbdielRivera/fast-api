@@ -20,6 +20,10 @@ app.add_middleware(
     allow_headers=["*"],  # Permitir todos los encabezados
 )
 
+@app.get("/")
+def read_root():
+    return {"message": "Bienvenido a la API de PRESTAMOS S.A. de C.V."}
+
 app.include_router(usuarios)
 app.include_router(material)
 app.include_router(prestamo)
